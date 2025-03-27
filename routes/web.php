@@ -27,11 +27,12 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/login', function () {
-    return view('kirjautuminen.login');
-});
 
-Route::post('/login', [CheckController::class, 'checkUser']);
+//Route::get('/login', function () {
+//    return view('kirjautuminen.login');
+//});
+
+//Route::post('/login', [CheckController::class, 'checkUser']);
 #-
 
 
