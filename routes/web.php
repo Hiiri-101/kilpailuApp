@@ -6,20 +6,6 @@ use App\Http\Controllers\NoteController;
 use App\Http\Controllers\CheckController;
 use App\Http\Controllers\WelcomeController;
 
-Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
-
-/*
-Route::get('/note', [NoteController::class, 'index'])->name('note.index');
-Route::get('/note/create', [NoteController::class, 'create'])->name('note.create');
-Route::post('/note', [NoteController::class, 'store'])->name('note.storage');
-Route::get('/note/{id}', [NoteController::class, 'show'])->name('note.show');
-Route::post('/note/{id}/edit', [NoteController::class, 'edit'])->name('note.edit');
-Route::put('/note/{id}', [NoteController::class, 'update'])->name('note.update');
-Route::delete('/note/{id}', [NoteController::class, 'destroy'])->name('note.destroy');
-*/
-
-Route::resource('note', NoteController::class);
-
 // Kirjautuminen
 /*
 Route::get('/', function () {
@@ -35,27 +21,37 @@ Route::get('/', function () {
 //Route::post('/login', [CheckController::class, 'checkUser']);
 #-
 
+Route::get('/', function () {
+    return view('sivut.kirjautuminen');
+});
 
 // Aloitus
 Route::get('/sihteeri', function () {
-    return view('aloitus.sihteeri');
+    return view('sivut.sihteeri');
 });
 
 Route::get('/tuomari', function () {
-    return view('aloitus.tuomari');
+    return view('sivut.tuomari');
 });
 
 Route::get('/paakayttaja', function () {
-    return view('aloitus.paakayttaja');
+    return view('sivut.paakayttaja');
 });
 #-
 
 
 // Ajanotto
 Route::get('/ajanotto', function () {
-    return view('demo.ajanotto');
+    return view('sivut.ajanotto');
 });
 #-
+
+
+#--
+
+use App\Livewire\Counter;
+
+Route::get('/counter', Counter::class);
 
 
 
@@ -86,12 +82,3 @@ Route::get('/test', function () {
     dd(DB::getQueryLog());
 });
 */
-
-// Common Resource Routes:
-// index - Show all listings
-// show - Show single listing
-// create - Show form to create new listing
-// store - Store new listing
-// edit - Show form to edit listing
-// update - Update listing
-// destroy - Delete listing
