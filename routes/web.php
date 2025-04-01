@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 
 //Route::get('/login', function () {
-//    return view('kirjautuminen.login');
+//    return view('');
 //});
 
 //Route::post('/login', [CheckController::class, 'checkUser']);
