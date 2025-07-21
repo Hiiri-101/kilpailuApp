@@ -5,8 +5,8 @@
     <title>5. Ajanotto</title>
     <link rel="stylesheet" href="../resources/style/style.css">
     @php
-    $tehtava = 'tehtava'
-    $tiimi = 'tiimi'
+    $tehtava = 'tehtava';
+    $tiimii = 'tiimi';
     @endphp
 </head>
 <body>
@@ -19,7 +19,7 @@
     class="container">
     <p style="color:#70826E">{{ $tehtava }}</p>
     <div position="" class="container">
-        <p style="">{{ $tiimi }}</p>
+        <p>{{ $tiimi }}</p>
     </div>
     
     {{-- @if(array_key_exists('submitForm', $_POST))
