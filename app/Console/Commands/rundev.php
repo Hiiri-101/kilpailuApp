@@ -11,7 +11,7 @@ class rundev extends Command
      *
      * @var string
      */
-    protected $signature = 'app:rundev';
+    protected $signature = 'rundev';
 
     /**
      * The console command description.
@@ -25,8 +25,21 @@ class rundev extends Command
      */
     public function handle()
     {
-        $runServe = popen();
-        $runNpm = popen();
+        $this->info('Starting laravel development server...');
+        $runServe = popen("php artisan serve", "r");
+
+        if ($runServe) {
+            $this->info('Laravel development server started.');
+            $this->info('Starting npm run dev...');
+            $runNpm = popen("npm run dev", "r");
+
+            if ($runNpm) {
+                this->info('npm run dev started.');
+            } else { $this->info('Failed starting npm run dev.'); }
+        } else { $this->info('Failed starting laravel development server.'); }
+
+        pclose($runServer);
+        plcose($runNpm);
         //
     }
 }
